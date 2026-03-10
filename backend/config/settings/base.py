@@ -170,6 +170,7 @@ SPECTACULAR_SETTINGS = {
         {"name": "Categories", "description": "Gestion des catégories de médicaments"},
         {"name": "Médicaments", "description": "CRUD et alertes de stock"},
         {"name": "Ventes", "description": "Gestion des ventes et annulations"},
+        {"name": "Dashboard", "description": "Statistiques du tableau de bord"},
     ],
 }
 
