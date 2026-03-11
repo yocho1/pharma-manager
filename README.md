@@ -5,8 +5,8 @@ Application web de gestion de pharmacie développée avec **Django REST Framewor
 ## Fonctionnalités
 
 - **Catégories** — CRUD complet pour organiser les médicaments
-- **Médicaments** — Gestion des stocks, alertes de stock bas, soft-delete, filtres
-- **Ventes** — Création de ventes avec déduction automatique du stock, annulation avec restauration
+- **Médicaments** — Gestion des stocks, alertes de stock bas, soft-delete, filtres, recherche
+- **Ventes** — Création avec référence auto-générée (VNT-YYYY-NNNN), déduction de stock, annulation avec restauration, filtrage par date
 - **Dashboard** — Tableau de bord avec indicateurs clés (statistiques temps réel)
 - **Swagger UI** — Documentation interactive de l'API à `/api/schema/swagger-ui/`
 
@@ -66,6 +66,12 @@ python manage.py migrate
 python manage.py createsuperuser  # optionnel
 ```
 
+Charger les données de test (optionnel) :
+
+```bash
+python manage.py loaddata fixtures/initial_data.json
+```
+
 Lancer le serveur :
 
 ```bash
@@ -111,6 +117,7 @@ pharma-manager/
 │   │   ├── medicaments/     # Module médicaments
 │   │   ├── ventes/          # Module ventes
 │   │   └── dashboard/       # Statistiques tableau de bord
+│   ├── fixtures/            # Données de test (seed data)
 │   └── manage.py
 ├── frontend/
 │   ├── src/
