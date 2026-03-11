@@ -1,0 +1,106 @@
+[
+  {
+    "model": "categories.categorie",
+    "pk": 1,
+    "fields": {
+      "nom": "Antalgiques",
+      "description": "Médicaments contre la douleur"
+    }
+  },
+  {
+    "model": "categories.categorie",
+    "pk": 2,
+    "fields": {
+      "nom": "Antibiotiques",
+      "description": "Médicaments antibactériens"
+    }
+  },
+  {
+    "model": "categories.categorie",
+    "pk": 3,
+    "fields": {
+      "nom": "Anti-inflammatoires",
+      "description": "Médicaments contre l'inflammation"
+    }
+  },
+  {
+    "model": "categories.categorie",
+    "pk": 4,
+    "fields": {
+      "nom": "Antihistaminiques",
+      "description": "Médicaments contre les allergies"
+    }
+  },
+  {
+    "model": "medicaments.medicament",
+    "pk": 1,
+    "fields": {
+      "nom": "Doliprane",
+      "dci": "Paracétamol",
+      "categorie": 1,
+      "forme": "comprime",
+      "dosage": "1000mg",
+      "prix_achat": "2.50",
+      "prix_vente": "5.00",
+      "stock_actuel": 150,
+      "stock_minimum": 20,
+      "date_expiration": "2027-12-31",
+      "ordonnance_requise": false,
+      "est_actif": true
+    }
+  },
+  {
+    "model": "medicaments.medicament",
+    "pk": 2,
+    "fields": {
+      "nom": "Amoxicilline",
+      "dci": "Amoxicilline trihydrate",
+      "categorie": 2,
+      "forme": "gelule",
+      "dosage": "500mg",
+      "prix_achat": "3.50",
+      "prix_vente": "6.90",
+      "stock_actuel": 200,
+      "stock_minimum": 30,
+      "date_expiration": "2027-06-15",
+      "ordonnance_requise": true,
+      "est_actif": true
+    }
+  },
+  {
+    "model": "medicaments.medicament",
+    "pk": 3,
+    "fields": {
+      "nom": "Ibuprofène",
+      "dci": "Ibuprofène",
+      "categorie": 3,
+      "forme": "comprime",
+      "dosage": "400mg",
+      "prix_achat": "2.00",
+      "prix_vente": "4.50",
+      "stock_actuel": 5,
+      "stock_minimum": 25,
+      "date_expiration": "2028-01-20",
+      "ordonnance_requise": false,
+      "est_actif": true
+    }
+  },
+  {
+    "model": "medicaments.medicament",
+    "pk": 4,
+    "fields": {
+      "nom": "Cétirizine",
+      "dci": "Cétirizine dichlorhydrate",
+      "categorie": 4,
+      "forme": "comprime",
+      "dosage": "10mg",
+      "prix_achat": "1.80",
+      "prix_vente": "3.90",
+      "stock_actuel": 80,
+      "stock_minimum": 15,
+      "date_expiration": "2028-03-01",
+      "ordonnance_requise": false,
+      "est_actif": true
+    }
+  }
+]
