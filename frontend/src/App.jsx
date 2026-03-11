@@ -1,4 +1,4 @@
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route, Navigate, Link } from "react-router-dom";
 import DashboardPage from "./pages/DashboardPage";
 import MedicamentsPage from "./pages/MedicamentsPage";
 import VentesPage from "./pages/VentesPage";
@@ -10,13 +10,13 @@ function App() {
         <h1 className="navbar-brand">PharmaManager</h1>
         <ul className="navbar-nav">
           <li>
-            <a href="/">Dashboard</a>
+            <Link to="/">Dashboard</Link>
           </li>
           <li>
-            <a href="/medicaments">Médicaments</a>
+            <Link to="/medicaments">Médicaments</Link>
           </li>
           <li>
-            <a href="/ventes">Ventes</a>
+            <Link to="/ventes">Ventes</Link>
           </li>
         </ul>
       </nav>
