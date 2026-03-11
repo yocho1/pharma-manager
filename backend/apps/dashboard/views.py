@@ -1,8 +1,7 @@
 """Dashboard statistics API view."""
 
-from datetime import date
-
 from django.db import models as db_models
+from django.utils import timezone
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from drf_spectacular.utils import extend_schema
@@ -35,7 +34,7 @@ from apps.ventes.models import Vente
 @api_view(["GET"])
 def dashboard_stats(request):
     """Return key dashboard statistics."""
-    today = date.today()
+    today = timezone.localdate()
 
     total_medicaments = Medicament.objects.filter(est_actif=True).count()
 
