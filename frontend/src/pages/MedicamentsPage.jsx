@@ -11,8 +11,9 @@ import {
 function MedicamentsPage() {
   const [showForm, setShowForm] = useState(false);
   const [editing, setEditing] = useState(null);
+  const [search, setSearch] = useState("");
 
-  const { data, isLoading, isError } = useMedicaments();
+  const { data, isLoading, isError } = useMedicaments({ search: search || undefined });
   const createMutation = useCreateMedicament();
   const updateMutation = useUpdateMedicament();
   const deleteMutation = useDeleteMedicament();
@@ -52,11 +53,20 @@ function MedicamentsPage() {
     <div>
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "1rem" }}>
         <h2>Médicaments ({medicaments.length})</h2>
-        {!showForm && !editing && (
-          <button className="btn-primary" onClick={() => setShowForm(true)}>
-            + Nouveau médicament
-          </button>
-        )}
+        <div style={{ display: "flex", gap: "0.5rem", alignItems: "center" }}>
+          <input
+            type="text"
+            placeholder="Rechercher par nom ou DCI…"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            style={{ width: "250px" }}
+          />
+          {!showForm && !editing && (
+            <button className="btn-primary" onClick={() => setShowForm(true)}>
+              + Nouveau médicament
+            </button>
+          )}
+        </div>
       </div>
 
       {showForm && (
