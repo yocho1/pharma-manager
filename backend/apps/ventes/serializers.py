@@ -60,12 +60,14 @@ class VenteSerializer(serializers.ModelSerializer):
         model = Vente
         fields = [
             "id",
+            "reference",
             "date_vente",
             "montant_total",
             "statut",
+            "notes",
             "lignes",
         ]
-        read_only_fields = ["id", "date_vente", "montant_total", "statut"]
+        read_only_fields = ["id", "reference", "date_vente", "montant_total", "statut"]
 
     def validate_lignes(self, value):
         """Au moins une ligne est requise."""
