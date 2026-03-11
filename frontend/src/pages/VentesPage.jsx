@@ -5,7 +5,8 @@ import VenteTable from "../components/ventes/VenteTable";
 
 function VentesPage() {
   const [showForm, setShowForm] = useState(false);
-  const { data, isLoading } = useVentes();
+  const [dateFilter, setDateFilter] = useState("");
+  const { data, isLoading } = useVentes({ date: dateFilter || undefined });
   const ventes = data?.results ?? data ?? [];
 
   const createMutation = useCreateVente();
@@ -47,6 +48,23 @@ function VentesPage() {
       )}
 
       <h3 style={{ marginTop: "2rem" }}>Historique des ventes</h3>
+      <div style={{ marginBottom: "1rem" }}>
+        <label htmlFor="date-filter" style={{ marginRight: "0.5rem" }}>Filtrer par date :</label>
+        <input
+          id="date-filter"
+          type="date"
+          value={dateFilter}
+          onChange={(e) => setDateFilter(e.target.value)}
+        />
+        {dateFilter && (
+          <button
+            style={{ marginLeft: "0.5rem" }}
+            onClick={() => setDateFilter("")}
+          >
+            Réinitialiser
+          </button>
+        )}
+      </div>
       <VenteTable
         ventes={ventes}
         isLoading={isLoading}

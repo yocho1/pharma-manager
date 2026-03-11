@@ -18,7 +18,7 @@ function VenteTable({ ventes, isLoading, onAnnuler, annulerPending }) {
     <table>
       <thead>
         <tr>
-          <th>ID</th>
+          <th>Référence</th>
           <th>Date</th>
           <th>Montant total</th>
           <th>Lignes</th>
@@ -29,7 +29,7 @@ function VenteTable({ ventes, isLoading, onAnnuler, annulerPending }) {
       <tbody>
         {ventes.map((vente) => (
           <tr key={vente.id}>
-            <td>{vente.id}</td>
+            <td><strong>{vente.reference}</strong></td>
             <td>{new Date(vente.date_vente).toLocaleDateString("fr-FR", {
               day: "2-digit",
               month: "2-digit",
