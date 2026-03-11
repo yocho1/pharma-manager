@@ -17,8 +17,8 @@ class LigneVenteInline(admin.TabularInline):
 class VenteAdmin(admin.ModelAdmin):
     """Admin pour le modèle Vente."""
 
-    list_display = ["id", "date_vente", "montant_total", "statut"]
+    list_display = ["reference", "date_vente", "montant_total", "statut"]
     list_filter = ["statut", "date_vente"]
     ordering = ["-date_vente"]
     inlines = [LigneVenteInline]
-    readonly_fields = ["date_vente", "montant_total"]
+    readonly_fields = ["reference", "date_vente", "montant_total"]
