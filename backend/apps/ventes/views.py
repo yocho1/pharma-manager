@@ -1,5 +1,6 @@
 """ViewSets for the Ventes app."""
 
+from django_filters import rest_framework as django_filters
 from django.db import transaction
 from rest_framework import mixins, status, viewsets
 from rest_framework.decorators import action
@@ -10,6 +11,16 @@ from apps.medicaments.models import Medicament
 
 from .models import Vente
 from .serializers import VenteDetailSerializer, VenteSerializer
+
+
+class VenteFilter(django_filters.FilterSet):
+    """Filtres pour les ventes."""
+
+    date = django_filters.DateFilter(field_name="date_vente", lookup_expr="date")
+
+    class Meta:
+        model = Vente
+        fields = ["statut", "date"]
 
 
 @extend_schema_view(
@@ -49,6 +60,7 @@ class VenteViewSet(
     """
 
     queryset = Vente.objects.prefetch_related("lignes", "lignes__medicament").all()
+    filterset_class = VenteFilter
     ordering_fields = ["date_vente", "montant_total"]
 
     def get_serializer_class(self):
